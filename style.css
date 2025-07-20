@@ -7,25 +7,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* Fondo con imagen de Mal, arriba y con opacidad baja */
+    justify-content: flex-start; /* contenido empieza arriba */
     background-image: url('iconoDeMal.png');
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 260px auto;
+    background-size: 220px auto; /* tamaño del logo */
+    padding-top: 140px; /* espacio debajo del logo */
 }
 
-/* Efecto de opacidad para la imagen de fondo usando pseudo-elemento */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url('iconoDeMal.png') no-repeat top center;
-    background-size: 260px auto;
-    opacity: 0.13;
-    pointer-events: none;
-    z-index: 0;
-}
+/* Elimina el pseudo-elemento body::before para que el logo no se mezcle con el contenido */
 
 /* Asegura que el contenido esté por encima del fondo */
 body > * {
@@ -41,9 +31,9 @@ h1 {
     letter-spacing: 2px;
     text-align: center;
     text-shadow:
-        0 0 6px #6a1b9a,   /* sombra morada suave */
-        0 2px 8px #000,     /* sombra negra más marcada */
-        1px 1px 0 #43ea7b;  /* toque verde Mal */
+        0 0 6px #6a1b9a,
+        0 2px 8px #000,
+        1px 1px 0 #43ea7b;
 }
 
 /* Inputs y textarea */
@@ -65,6 +55,7 @@ textarea {
     resize: none;
     min-height: 90px;
     border: 2px solid #43ea7b;
+    font-size: 1.4em;
 }
 
 /* Botones Mal style */
@@ -94,36 +85,15 @@ button:hover {
     color: #6a1b9a;
 }
 
-/* Responsive para móvil: más zoom y fondo más cerca */
+/* Responsive para móvil: logo más pequeño y menos espacio arriba */
 @media (max-width: 500px) {
     body {
-        background-size: 180px auto;
-        background-position: top center;
-        padding-top: 10px;
-    }
-    body::before {
-        background-size: 180px auto;
-        background-position: top center;
+        background-size: 140px auto;
+        padding-top: 80px;
     }
     h1 {
-        font-size: 2.6rem;
+        font-size: 2rem;
         margin-top: 0.5em;
     }
     input, textarea {
-        font-size: 1.25em;
-        max-width: 98vw;
-    }
-    .botones button {
-        font-size: 1.2em;
-        padding: 0.8em 1.3em;
-    }
-}
-
-/* Placeholder color */
-input::placeholder,
-textarea::placeholder {
-    color: #e1cfff;
-    opacity: 1;
-}
-
-/* Resultado
+        font-size: 1.15em;
