@@ -97,3 +97,17 @@ button:hover {
     }
     input, textarea {
         font-size: 1.15em;
+        max-width: 98vw;
+    }
+    .botones button {
+        font-size: 1.1em;
+        padding: 0.7em 1.2em;
+    }
+}
+
+/* Placeholder color */
+input::placeholder,
+textarea::placeholder {
+    color: #e1cfff;
+    opacity: 1;
+}
