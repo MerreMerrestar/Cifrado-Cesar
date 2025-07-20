@@ -1,0 +1,115 @@
+/* Fondo morado y fuente moderna */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #6a1b9a;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Fondo con imagen de Mal, arriba y con opacidad baja */
+    background-image: url('iconoDeMal.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 340px auto;
+}
+
+/* Efecto de opacidad para la imagen de fondo usando pseudo-elemento */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url('iconoDeMal.png') no-repeat top center;
+    background-size: 340px auto;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Asegura que el contenido esté por encima del fondo */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título Mal vibes */
+h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow:
+        0 0 6px #6a1b9a,   /* sombra morada suave */
+        0 2px 8px #000,     /* sombra negra más marcada */
+        1px 1px 0 #43ea7b;  /* toque verde Mal */
+}
+
+/* Inputs y textarea */
+input, textarea {
+    width: 90vw;
+    max-width: 350px;
+    padding: 0.7em;
+    margin: 0.5em 0;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    font-size: 1em;
+    background: #7e3bb7;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(106,27,154,0.07);
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    min-height: 90px;
+    border: 2px solid #43ea7b;
+}
+
+/* Botones Mal style */
+button {
+    background: #43ea7b;
+    color: #6a1b9a;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    margin: 0.5em 0.3em;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(67,234,123,0.09);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #fff;
+    color: #6a1b9a;
+}
+
+/* Responsive para móvil */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    input, textarea {
+        font-size: 0.95em;
+        max-width: 98vw;
+    }
+    button {
+        font-size: 0.95em;
+        padding: 0.5em 1em;
+    }
+}
+
+/* Placeholder color */
+input::placeholder,
+textarea::placeholder {
+    color: #e1cfff;
+    opacity: 1;
+}
+
+#resultadoTexto {
+    font-size: 1.4em;
+}
+

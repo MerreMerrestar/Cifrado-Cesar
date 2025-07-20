@@ -1,4 +1,3 @@
-let forumalario = document.getElementById("formulario")
 let textareaCesar = document.getElementById("resultadoTexto")
 
 let btnCifrar = document.getElementById("btnCifrar")
@@ -9,10 +8,10 @@ let input = document.getElementById("input")
 
 const abecedario = [
 
-  "a", "b", "c", "d", "e", "f", "g",
-  "h", "i", "j", "k", "l", "m", "n",
-  "ñ", "o", "p", "q", "r", "s", "t",
-  "u", "v", "w", "x", "y", "z"
+  "A", "B", "C", "D", "E", "F", "G",
+  "H", "I", "J", "K", "L", "M", "N",
+  "Ñ", "O", "P", "Q", "R", "S", "T",
+  "U", "V", "W", "X", "Y", "Z"
 
 ];
 
@@ -24,7 +23,7 @@ btnCifrar.addEventListener("click" , cifrar);
 
 		let resultado = []
 
-		let text = input.value;
+		let text = input.value.toUpperCase();
 
 		console.log("CIFRANDO: " + text);
 
@@ -34,7 +33,7 @@ btnCifrar.addEventListener("click" , cifrar);
 
 			let el = array[i]
 
-			if (el == "v"  || el == "w" || el == "x" || el == "y" || el == "z"){
+			if (el == "V"  || el == "W" || el == "X" || el == "Y" || el == "Z"){
 
 				let newIndex = (abecedario.indexOf(el) + 5) % abecedario.length;
 
@@ -42,6 +41,9 @@ btnCifrar.addEventListener("click" , cifrar);
 
 			}
 
+			else if(!abecedario.includes(el))
+					resultado.push(el)
+				
 			else {
 				
 				resultado.push(abecedario[abecedario.indexOf(el) + 5])
@@ -66,7 +68,7 @@ btnDescifrar.addEventListener("click" , descifrar);
 		
 		let resultado = []
 
-		let text = input.value;
+		let text = input.value.toUpperCase();
 
 		console.log("DESCIFRANDO: " + text);
 
@@ -76,13 +78,16 @@ btnDescifrar.addEventListener("click" , descifrar);
 
 			let el = array[i]
 
-			if (el == "a"  || el == "b" || el == "c" || el == "d" || el == "e"){
+			if (el == "A"  || el == "B" || el == "C" || el == "D" || el == "E"){
 
 				let newIndex = ((abecedario.indexOf(el) - 5) + abecedario.length) % abecedario.length;
 
 				resultado.push(abecedario[newIndex])
 
 			}
+
+			else if(!abecedario.includes(el))
+					resultado.push(el)
 
 			else {
 				
@@ -97,7 +102,15 @@ btnDescifrar.addEventListener("click" , descifrar);
 		
 		
 	}
+
+const copybtn = document.getElementById("copybtn");
+
+	copybtn.addEventListener("click" , copiar)
+
+	function copiar (){
+
+		const texto = textareaCesar.value
+		 navigator.clipboard.writeText(texto)
+
+	}
 		
-	
-
-
