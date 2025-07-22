@@ -114,3 +114,16 @@ const copybtn = document.getElementById("copybtn");
 
 	}
 		
+	function ajustarAltura() {
+    textareaCesar.style.height = 'auto';
+    textareaCesar.style.height = textareaCesar.scrollHeight + 'px';
+}
+
+// Se ajusta cada vez que el usuario escribe algo manualmente
+textareaCesar.addEventListener('input', ajustarAltura);
+
+// También se ajusta después de cifrar o descifrar (texto puesto por JS)
+btnCifrar.addEventListener("click", ajustarAltura);
+btnDescifrar.addEventListener("click", ajustarAltura);
+	
+ 
